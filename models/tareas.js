@@ -78,7 +78,7 @@ class Tareas {
             if ( completadas ) {
                 contador += 1;
                 if ( completadas ) {
-                    console.log(`${ (contador + '.').green } ${ desc } :: ${ compleatadoEn }`)
+                    console.log(`${ (contador + '.').green } ${ desc } :: ${ compleatadoEn.green }`)
                 }
             } else {
                 // Mostrar pendientes
@@ -89,6 +89,19 @@ class Tareas {
             }
 
         });
+
+    }
+
+    toggleCompletadas( ids = [] ) {
+
+        ids.forEach( id => {
+
+            const tarea = this._listado[id];
+            if ( tarea.compleatadoEn ) {
+                tarea.compleatadoEn = new Date().toISOString()
+            }
+
+        })
 
     }
 
